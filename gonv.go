@@ -5,9 +5,9 @@ import (
 	"unsafe"
 )
 
-func Atob(s string) []byte {
+func Atob(s string) (b []byte) {
 	if len(s) == 0 {
-		return []byte{}
+		return b
 	}
 	sh := (*reflect.StringHeader)(unsafe.Pointer(&s))
 	return *(*[]byte)(unsafe.Pointer(&reflect.SliceHeader{
